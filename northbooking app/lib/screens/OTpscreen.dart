@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:testapp/screens/home.dart';
 
 class OTPScreen extends StatefulWidget {
   const OTPScreen({Key? key}) : super(key: key);
@@ -89,7 +90,10 @@ class _OTPScreenState extends State<OTPScreen> {
                     ),
                   ),
                   onPressed: () {
-                    // Implement your sign in logic here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
                   },
                   child: Text(
                     'submit',
