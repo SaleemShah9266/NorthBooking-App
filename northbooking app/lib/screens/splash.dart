@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
         alignment: Alignment.center, // Center align the child
         child: Image.asset(
           "assets/images/logo.png",
-          width: 1000,
+          width: 100,
         ),
       ),
     );
