@@ -27,6 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
     'Events',
   ];
 
+  List<int> comingSoonIndexes = [
+    3,
+    4,
+    5,
+    6
+  ]; // Indexes of cards where "Coming Soon" will be displayed
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -109,27 +116,53 @@ class _HomeScreenState extends State<HomeScreen> {
             return Card(
               color: Colors.white,
               elevation: 2,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
                 children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    padding: EdgeInsets.all(10), // Add padding around the image
-                    child: Image.asset(
-                      imagePaths[
-                          index], // Use the image path at the current index
-                      fit: BoxFit.cover,
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 80,
+                          height: 80,
+                          padding: EdgeInsets.all(
+                              10), // Add padding around the image
+                          child: Image.asset(
+                            imagePaths[
+                                index], // Use the image path at the current index
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          texts[index], // Use the text at the current index
+                          style: GoogleFonts.aBeeZee(
+                            fontSize: 18, // Font size 16
+                            color: Color(0xFFB3006D), // Blue color
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    texts[index], // Use the text at the current index
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: 18, // Font size 16
-                      color: Color(0xFFB3006D), // Blue color
+                  if (comingSoonIndexes.contains(index))
+                    Positioned(
+                      top: 10,
+                      right: 10,
+                      child: Container(
+                        padding: EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          'Coming Soon',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
                 ],
               ),
             );

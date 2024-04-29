@@ -18,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
       home: Scaffold(
         body: SingleChildScrollView(
           padding: EdgeInsets.only(top: 30),
+          
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +29,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 150,
                 child: Image.asset(
                   'assets/images/logo.png',
-                  fit: BoxFit.contain,
+                 
+                  // fit: BoxFit.cover,
                 ),
               ),
               SizedBox(height: 10), // Spacer
